@@ -120,7 +120,7 @@ MockFirestoreQuery.prototype.where = function (property, operator, value) {
             }
             break;
           case 'array-contains':
-            if (_.includes(_.get(data, property), value)) {
+            if (_.find(_.get(data, property), (item) => _.isEqual(item, value))) {
               results[key] = _.cloneDeep(data);
             }
             break;
